@@ -71,3 +71,38 @@ const result = findMeetingSlot(inputArray, meetingLength);
 console.log(result); // Output should be 240
 
 ```
+## Q.2
+
+> Flatten nested object: 
+
+    const nestedObject = {   
+	    a: 1,   
+	    b: {
+		    c: 2,
+		    d: {
+			    e: 3,
+			    f: { }
+			 }   
+		    },   
+		    g: 5 
+		 };
+
+> const flatObject = flattenObject(nestedObject);
+> console.log(flatObject); 
+> Output: {a: 1, bc: 2, bde: 3, g: 5}
+
+```javascript
+
+function flattenObject(obj,parent="",res={}) {
+    for(let key in obj){
+        let propName = parent ? `${parent}${key}` : key
+        if(typeof obj[key] === "object"){
+            flattenObject(obj[key],propName,res)
+        }else{
+            res[propName] = obj[key]
+        }
+    }
+    return res
+}
+
+```
