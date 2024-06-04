@@ -198,3 +198,65 @@ console.log(flattenedArray); // Output: [1, 2, 3, [4, [5]]]
 
 
 ```
+
+## Q.5
+>Find next palindrome
+
+```javascript
+
+let  isPalindrome= (num)=> {
+  const str = num.toString();
+  return str === str.split('').reverse().join('');
+}
+
+let createPalindrome = (left, isOddLength) => {
+  const strLeft = left.toString();
+  const reversed = strLeft.split('').reverse().join('');
+  return parseInt(isOddLength ? strLeft + reversed.slice(1) : strLeft + reversed);
+}
+
+let nextPalindrome = (num) => {
+  const strNum = num.toString();
+  const length = strNum.length;
+  const isOddLength = length % 2 !== 0;
+  const leftHalf = parseInt(strNum.slice(0, Math.ceil(length / 2)));
+  
+  for (let i = 0; i < 2; i++) {
+    const candidate = createPalindrome(leftHalf + i, isOddLength);
+    if (candidate > num) {
+      return candidate;
+    }
+  }
+
+  return createPalindrome(leftHalf + 1, isOddLength);
+}
+
+// Example usage:
+const number = 123;
+const nextPal = nextPalindrome(number);
+console.log(nextPal); // Output: 131
+
+```
+
+## Q.6
+>Flat an array
+
+```javascript
+
+const flatArray = (arr) =>{
+    const result = []
+
+    for(let i=0;i<arr.length;i++){
+        if(Array.isArray(arr[i])){
+            result.push(...flatArray(arr[i]))
+        }else{
+            result.push(arr[i])
+        }
+    }
+
+    return result
+}
+
+console.log(flatArray([1,4,5,6,[7,9,10,[11,12]],99]))
+
+```
