@@ -106,3 +106,58 @@ function flattenObject(obj,parent="",res={}) {
 }
 
 ```
+
+## Q.3
+>Given an array is said to be non-pattern breaker if consecutive two elemnts are not the same type(odd or even),
+>if the array is breaking the pattern then return the element(or index) at which it broke the rule.
+>Example: [3,4,7,10,12,13]
+>Output: 12, as 10 and 12 both are even and 12 is where the array first broke the pattern
+>Example2: [4,7,12,13,15,19,20,23]
+>Output: 15
+
+```javascript
+
+const checkPattern = (arr)=>{
+  for(let i=1; i<arr.length;i++){
+    if((arr[i-1]%2 == arr[i]%2)){
+      return arr[i]
+    }
+  }
+  return -1
+}
+
+console.log(checkPattern(arr))
+
+```
+
+## Q.4
+
+>remove duplicate elements from an array and replace it with ```null```, all the ```null``` values will be at the end of the array
+>do not create new array
+>do not alter the length of the array
+>cant use map,find,Set,filter
+>Example1: [3,6,7,2,5,5,7,9]
+>Output: [3,6,7,2,5,9,null,null]
+>Example2: [3,6,7,2,5,5,7,9,7,11,2,3]
+>Output: [3,6,7,2,5,9,11,null,null,null,null,null]
+
+```javascript
+const removeDuplicate = (arr)=>{
+  for(let i = 0; i<arr.length;i++){
+    let left = i
+    for(let j=arr.length-1;j>i;j--){
+      if(arr[i]==arr[j]){
+        arr[j] = null
+      }
+
+      if(arr[j] && !arr[i]){
+        [arr[i],arr[j]] = [arr[j],arr[i]]
+      }
+    }
+  }
+  return arr
+}
+
+console.log(removeDuplicate(arr))
+
+```
