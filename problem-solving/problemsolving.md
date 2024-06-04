@@ -86,13 +86,13 @@ const nestedObject = {
 	  },   
 	g: 5 
 };
+const flatObject = flattenObject(nestedObject) <br>
+console.log(flatObject); <br>
+Output: {a: 1, bc: 2, bde: 3, g: 5} <br>
 ```
 <br>
 <br>
 <br>
-> const flatObject = flattenObject(nestedObject) <br>
-> console.log(flatObject); <br>
-> Output: {a: 1, bc: 2, bde: 3, g: 5} <br>
 
 ```javascript
 
