@@ -164,3 +164,37 @@ const removeDuplicate = (arr)=>{
 console.log(removeDuplicate(arr))
 
 ```
+
+## Q.5
+>Flatten a nested array with specif depth
+```
+const nestedArray = [1, [2, [3, [4, [5]]]]];
+const depth = 2;
+const flattenedArray = nestedArray.flat(depth);
+console.log(flattenedArray); // Output: [1, 2, 3, [4, [5]]]
+```
+
+```javascript
+
+function flattenArray(arr, depth = 1) {
+  if (depth < 1) {
+    return arr.slice();
+  }
+
+  return arr.reduce((acc, val) => {
+    if (Array.isArray(val)) {
+      acc.push(...flattenArray(val, depth - 1));
+    } else {
+      acc.push(val);
+    }
+    return acc;
+  }, []);
+}
+
+// Example usage:
+const nestedArray = [1, [2, [3, [4, [5]]]]];
+const flattenedArray = flattenArray(nestedArray, 2);
+console.log(flattenedArray); // Output: [1, 2, 3, [4, [5]]]
+
+
+```
