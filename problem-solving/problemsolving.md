@@ -74,22 +74,25 @@ console.log(result); // Output should be 240
 ## Q.2
 
 > Flatten nested object: 
-
-    const nestedObject = {   
-	    a: 1,   
-	    b: {
-		    c: 2,
-		    d: {
-			    e: 3,
-			    f: { }
-			 }   
-		    },   
-		    g: 5 
-		 };
-
-> const flatObject = flattenObject(nestedObject);
-> console.log(flatObject); 
-> Output: {a: 1, bc: 2, bde: 3, g: 5}
+```
+const nestedObject = {   
+  a: 1,   
+  b: {
+    	c: 2,
+	    d: {
+		    e: 3,
+		    f: { }
+		 }   
+	  },   
+	g: 5 
+};
+```
+<br>
+<br>
+<br>
+> const flatObject = flattenObject(nestedObject) <br>
+> console.log(flatObject); <br>
+> Output: {a: 1, bc: 2, bde: 3, g: 5} <br>
 
 ```javascript
 
@@ -109,11 +112,11 @@ function flattenObject(obj,parent="",res={}) {
 
 ## Q.3
 >Given an array is said to be non-pattern breaker if consecutive two elemnts are not the same type(odd or even),
->if the array is breaking the pattern then return the element(or index) at which it broke the rule.
->Example: [3,4,7,10,12,13]
->Output: 12, as 10 and 12 both are even and 12 is where the array first broke the pattern
->Example2: [4,7,12,13,15,19,20,23]
->Output: 15
+>if the array is breaking the pattern then return the element(or index) at which it broke the rule. <br>
+>Example: ```[3,4,7,10,12,13]``` <br>
+>Output: ```12```, as ```10``` and ```12``` both are even and ```12``` is where the array first broke the pattern <br>
+>Example2: ```[4,7,12,13,15,19,20,23]``` <br>
+>Output: ```15``` <br>
 
 ```javascript
 
@@ -132,14 +135,14 @@ console.log(checkPattern(arr))
 
 ## Q.4
 
->remove duplicate elements from an array and replace it with ```null```, all the ```null``` values will be at the end of the array
->do not create new array
->do not alter the length of the array
->cant use map,find,Set,filter
->Example1: [3,6,7,2,5,5,7,9]
->Output: [3,6,7,2,5,9,null,null]
->Example2: [3,6,7,2,5,5,7,9,7,11,2,3]
->Output: [3,6,7,2,5,9,11,null,null,null,null,null]
+>remove duplicate elements from an array and replace it with ```null```, all the ```null``` values will be at the end of the array <br>
+>do not create new array  <br>
+>do not alter the length of the array <br>
+>cant use map,find,Set,filter <br>
+>Example1: ```[3,6,7,2,5,5,7,9]``` <br>
+>Output: ```[3,6,7,2,5,9,null,null]``` <br>
+>Example2: ```[3,6,7,2,5,5,7,9,7,11,2,3]``` <br>
+>Output: ```[3,6,7,2,5,9,11,null,null,null,null,null]``` <br>
 
 ```javascript
 const removeDuplicate = (arr)=>{
