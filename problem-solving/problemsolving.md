@@ -260,3 +260,33 @@ const flatArray = (arr) =>{
 console.log(flatArray([1,4,5,6,[7,9,10,[11,12]],99]))
 
 ```
+
+## Q.7
+>Largest sub-array sum
+```
+console.log(findsubArray([1,4,9,2,5,0,11,2],3))
+ans: 16
+```
+
+```javascript
+
+const findsubArray = (arr, k)=>{
+  let sum = 0;
+  for(let i = 0;i<k;i++){
+    sum += arr[i]
+  }
+  let currentSum = sum
+  for(let i=k;i<arr.length;i++){
+    currentSum = currentSum - arr[i-k] + arr[i]
+    if(currentSum>sum){
+      sum = currentSum
+    }
+  }
+
+  return sum
+}
+
+console.log(findsubArray([1,4,9,2,5,0,11,2],3))
+//                           
+
+```
