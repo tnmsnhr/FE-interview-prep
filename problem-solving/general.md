@@ -290,3 +290,31 @@ console.log(findsubArray([1,4,9,2,5,0,11,2],3))
 //                           
 
 ```
+
+## Q.8
+>Find target sum and return the elements
+
+```
+Sample Input:
+array = [3,5,-4, 8, 11, 1, -1, 6]
+targetSum = 10
+Sample Output:
+[-1, 11] // the numbers could be in reverse order
+
+O(N)T (Time complexity) & O(N)S (Space Complexity)
+```
+
+```javascript
+
+function twoNumberSum(array, targetSum) {
+  const visited = {};
+  for (let num of array) {
+    let requiredNumber = targetSum - num;
+    if (visited[requiredNumber]) {
+      return [num, requiredNumber];
+    }
+    visited[num] = true;
+  }
+}
+
+```
