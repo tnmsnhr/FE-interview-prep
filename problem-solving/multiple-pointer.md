@@ -62,3 +62,37 @@ console.log(isValidSubsequence([5, 1, 22, 25, 6, -1, 8, 10], [1, 6, -1, 10]));
 
 ```
 
+## Q.3
+>Find the target sum and return the element
+
+```
+Sample Input:
+array = [3,5,-4, 8, 11, 1, -1, 6]
+targetSum = 10
+Sample Output:
+[-1, 11] // the numbers could be in reverse order
+
+O(N)T (Time complexity) & O(N)S (Space Complexity)
+```
+
+```javascript
+
+function twoNumberSum(array, targetSum) {
+  let left = 0;
+  let right = array.length - 1;
+  array.sort((a, b) => a - b);
+
+  while (left < right) {
+    let sum = array[left] + array[right];
+    if (sum === targetSum) {
+      return [array[left], array[right]];
+    }
+    if (sum < targetSum) {
+      left++;
+    } else {
+      right--;
+    }
+  }
+
+
+```
