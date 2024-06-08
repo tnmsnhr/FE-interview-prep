@@ -179,3 +179,132 @@ tree.insert(20);
 
 
 ```
+
+## Q.2
+>Find the minimum path in a Binary Search Tree (BST), you typically want to find the
+>minimum path sum from the root to any leaf.
+
+```
+Example1:
+        10
+       /  \
+      5    20
+     / \     \
+    3   7     30
+
+Output: 18 (10 + 5 + 3)
+
+Example2:
+
+        10
+       /  
+      5    
+     /  
+    3  
+   /
+  1
+
+Output: 19 (10 + 5 + 3 + 1)
+
+
+```
+
+```javascript
+
+class TreeNode {
+    constructor(value) {
+        this.value = value;
+        this.left = null;
+        this.right = null;
+    }
+}
+
+const root = new TreeNode(10);
+root.left = new TreeNode(5);
+root.right = new TreeNode(20);
+root.left.left = new TreeNode(3);
+root.left.right = new TreeNode(7);
+root.right.right = new TreeNode(30);
+
+const minPathSum = (root) => {
+    if (root === null) {
+        return Infinity;
+    }
+
+    if (root.left === null && root.right === null) {
+        return root.value;
+    }
+
+    const leftMinSum = minPathSum(root.left);
+    const rightMinSum = minPathSum(root.right);
+
+    return root.value + Math.min(leftMinSum, rightMinSum);
+};
+
+```
+
+
+## Q.3
+>Find the min and max value of a BST 
+
+```
+Example1:
+        10
+       /  \
+      5    20
+     / \     \
+    3   7     30
+
+Output: 3
+
+Example2:
+
+        10
+       /  
+      5    
+     /  
+    3  
+   /
+  1
+
+Output: 1
+
+
+```
+
+
+```javascript
+
+class TreeNode {
+    constructor(value) {
+        this.value = value;
+        this.left = null;
+        this.right = null;
+    }
+}
+
+const root = new TreeNode(10);
+root.left = new TreeNode(5);
+root.right = new TreeNode(20);
+root.left.left = new TreeNode(3);
+root.left.right = new TreeNode(7);
+root.right.right = new TreeNode(30);
+
+const findMin = (root)=>{
+  if(!root) return undefined
+  if(!root.right && !root.left) return root.value
+
+  return findMin(root.left)
+}
+
+const findMax = (root)=>{
+  if(!root) return undefined
+  if(!root.right && !root.left) return root.value
+
+  return findMax(root.right)
+}
+
+console.log(findMin(root))
+console.log(findMax(root))
+
+```
