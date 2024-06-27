@@ -32,3 +32,44 @@ B6
 B6
 B6
 ```
+
+## Q.2
+
+```javascript
+function jsExecutionOrder() {
+  async function action1() {
+    console.log('Apple')
+    await action2()
+    console.log('Boy')
+  }
+  async function action2() {
+    console.log('Cat')
+  }
+  console.log('Dog')
+  setTimeout(function () {
+    console.log('Elephant')
+  }, 0)
+  action1()
+  new Promise(function (resolve) {
+    console.log('Fish')
+    resolve()
+  }).then(function () {
+    console.log('Girl')
+  })
+  console.log('Horse')
+}
+jsExecutionOrder()
+
+```
+
+```
+Dog
+Apple
+Cat
+Fish
+Horse
+Boy
+Girl
+Elephant
+
+```
