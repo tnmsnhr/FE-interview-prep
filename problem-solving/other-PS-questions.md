@@ -5,11 +5,13 @@ Open brackets must be closed by same type of brackets.
 Open brackets must be closed in the correct order.
 Every close bracket has a corresponding open bracket of the same page.
 
+```
 input: "()[]{}"
 output: true
 
 input: "(]"
 output: false
+```
 
 
 ```javascript
@@ -50,11 +52,13 @@ console.log(isValid(str));
 ## Q2
 >Given an integer array, rotate or shift the array to the right by k steps, where k is non-negative.
 
+```
 input: nums = [1,2,3,4,5,6,7], k = 3
 output: [5,6,7,1,2,3,4]
 
 input: nums = [-1, -100, 3, 99], k = 2
 output: [3,99,-1,-100]
+```
 
 ```javascript
 
